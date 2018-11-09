@@ -12,13 +12,15 @@
                         </div>
                         <div class="product__actions">
                             <div class="product__action-wrapper" v-on:click="likeAction()">
-                                <div class="roduct__action-like-button" v-bind:class="product_in_like_array ? 'product__action-like-button-active': ''">
-                                </div>
+                                <template v-if="product_in_like_array">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                </template>
+                                <template v-else>
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                </template>
                             </div>
-                            <div class="product__action-wrapper" v-on:click="compareAction()">
-                                <div class="product__action-compare-button" v-bind:class="product_in_compare_array ? 'product__action-compare-button-active': ''">
-
-                                </div>
+                            <div class="product__action-wrapper" v-on:click="compareAction()" v-bind:class="product_in_compare_array ? 'product__action-compare-active': ''">
+                                <i class="fa fa-bar-chart-o" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
@@ -98,7 +100,7 @@
             },
             product_in_compare_array: {
                 get: function() {
-                    if (this.basket.indexOf(this.product.product_id) !== -1) {
+                    if (this.compare.indexOf(this.product.product_id) !== -1) {
                         return true
                     } else {
                         return false
@@ -214,6 +216,15 @@
             border-radius: 50%;
             border: 1px solid #d4d4d4;
             margin-bottom: 5px;
+            text-align: center;
+            > i {
+                vertical-align: middle;
+            }
+        }
+        &__action-compare-active {
+            > i {
+                color: #FE9900;
+            }
         }
         &__description {
             font: 12px Arial;

@@ -51,7 +51,7 @@
                 }
             },
             mouseOutActiveClas: function (arr){
-                for(var i = arr.length-1; i >=1; i--) {
+                for(var i = arr.length-1; i >=0; i--) {
                     if(arr[i].classList.contains('rating__item-current-active')){
                         break;
                     }else {
