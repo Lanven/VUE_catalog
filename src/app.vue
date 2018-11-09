@@ -34,8 +34,6 @@
         &__content {
             box-sizing: border-box;
             flex-grow: 1;
-            height: 100%;
-            overflow-y: auto;
         }
     }
 </style>

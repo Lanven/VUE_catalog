@@ -217,6 +217,7 @@
             border: 1px solid #d4d4d4;
             margin-bottom: 5px;
             text-align: center;
+            line-height: 23px;
             > i {
                 vertical-align: middle;
             }
@@ -231,7 +232,7 @@
             font-weight: 400;
             color: #222;
             line-height: 16px;
-             padding: 10px;
+            padding: 10px;
         }
         &__info {
             &:after {
@@ -282,13 +283,14 @@
         }
         &__price-main {
             font-weight: bold;
+            line-height: 24px;
         }
         &__price-main--old {
             font-size: 14px;
             color: gray;
             text-decoration: line-through;
             position: absolute;
-            bottom: 100%;
+            bottom: 80%;
             left: 0;
         }
         &__button-wrapper {
