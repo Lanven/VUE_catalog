@@ -1,8 +1,11 @@
 <template>
     <div class="container">
+        <div class="container__header">
+            <h1>Каталог</h1>
+        </div>
         <div class="container__products">
             <div class="products">
-                <ProductComponent v-for="item in products" :product=item :basket=basket_array :compare=compare_array :like=like_array
+                <ProductComponent v-for="item in products" :key="item.product_id" :product=item :basket=basket_array :compare=compare_array :like=like_array
                                   v-on:basketAction="productAction(item.product_id, 'basket_array')"
                                   v-on:likeAction="productAction(item.product_id, 'like_array')"
                                   v-on:compareAction="productAction(item.product_id, 'compare_array')"
