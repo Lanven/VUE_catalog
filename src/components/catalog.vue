@@ -3,7 +3,9 @@
         <div class="container__products">
             <div class="products">
                 <ProductComponent v-for="item in products" :product=item :basket=basket_array :compare=compare_array :like=like_array
-                                  v-on:inBasket="inBasket(item.product_id)"
+                                  v-on:basketAction="productAction(item.product_id, 'basket_array')"
+                                  v-on:likeAction="productAction(item.product_id, 'like_array')"
+                                  v-on:compareAction="productAction(item.product_id, 'compare_array')"
                                   v-on:changeProductRating="changeProductRating"></ProductComponent>
             </div>
         </div>
@@ -26,13 +28,13 @@
         },
         computed: {},
         methods: {
-            inBasket: function(id) {
+            productAction: function(id, item) {
                 var vm = this;
 
-                if (vm.basket_array.indexOf(id) !== -1) {
-                    vm.basket_array.splice(vm.basket_array.indexOf(id), 1);
+                if (vm[item].indexOf(id) !== -1) {
+                    vm[item].splice(vm[item].indexOf(id), 1);
                 } else {
-                    vm.basket_array.push(id);
+                    vm[item].push(id);
                 }
             },
             changeProductRating: function (item, rating) {
